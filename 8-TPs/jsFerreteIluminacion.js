@@ -40,10 +40,10 @@ function CalcularPrecio ()
                 document.getElementById ("precioDescuento").value = precio_descuento;
             }
             else{
-                if[cant_lamp == 4 && (marc_lamp "ArgentinaLuz" || "FelipeLamparas" )]
+                if (cant_lamp == 4 && marc_lamp) //"ArgentinaLuz" "FelipeLamparas"// 
 
-            }
-        }
+            
+            }   
 
 
     }

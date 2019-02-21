@@ -15,14 +15,32 @@ var contadorIntentos;
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100
-	 
-	
+	numeroSecreto = Math.floor (Mathrandom ()* 100) +1;
+	console.log (numeroSecreto);
 
+	contador = 0
 }
 
 function verificar()
 {
+	var numeroIngresado;
+	numeroIngresado = document.getElementById ("numero").value;
 	
+	console.log (numeroIngresado);
 	
+	contadorIntentos = contadorIntentos + 1
+
+	if (numeroIngresado == numeroSecreto)
+	{
+		switch (contadorIntentos)
+		{	case 1: 
+			
+			break;
+		}
+
+
+		
+
+	}
 
 }
