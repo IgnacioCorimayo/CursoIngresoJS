@@ -13,7 +13,23 @@ function mostrar()
     
     switch (medioPago)
     {
-        case 1:
+        case "Tarjeta Visa":
+            
+        break;
+
+        case "Paypal":
+
+        break;
+
+        case "Mercadopago":
+
+        break;
+
+        case "Efectivo":
+
+        break;
+
+        case "Otro medio":
 
         break;
     }
