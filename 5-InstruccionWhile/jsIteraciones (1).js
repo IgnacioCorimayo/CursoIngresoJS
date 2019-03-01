@@ -8,7 +8,7 @@ function mostrar()
 	{
 		contador = contador + 1;	
 		
-		console.log (11 - contador);
+		console.log (contador);
 	}
 
 
