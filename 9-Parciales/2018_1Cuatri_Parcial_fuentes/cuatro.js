@@ -1,7 +1,13 @@
+/*Pedir dos números y mostrar el resultado: Si son iguales los muestro concatenados. 
+Si el primero es mayor, los resto, de lo contrario los sumo. 
+Si la suma es mayor a 10 ,además de mostrar el resultado, muestro el mensaje "la suma es xxx y supero el 10".*/
+
+
 function mostrar()
 {
     var numero1;
     var numero2;
+    var resultado;
 
     numero1 = prompt ("Ingrese el primer número");
     numero1 = parseInt (numero1);
@@ -11,31 +17,26 @@ function mostrar()
 
     if (numero1 == numero2)
     {
-        mensaje = numero1+""+numero2;
-
+        alert (numero1+""+numero2);
     }
-    else 
+    else
     {
         if (numero1 > numero2)
-        {
-            operación = numero1 - numero2;
-            mensaje = operación;
+        { 
+            alert (numero1 - numero2);
         }
         else
         {
-            operación = numero1 + numero2;
-
-            if (operación > 10)
+            suma = numero1 + numero2;
+            alert (suma);
+            
+            if (suma > 10)
             {
-                mensaje = "La suma es: " +operación+ " y supero el 10";
-            }
-            else{
-                mensaje = operación; 
+                alert ("La suma es " +suma+ " y supero el 10");     
             }
         }
     }
-    
-    alert (mensaje);
-
 }
 
+    
+   

@@ -1,3 +1,7 @@
+/*Se ingresa una hora. Si está entre las 6 y las 11 mostrar: “es de mañana”, si es desde las 12 a las 19:
+"es de tarde", de lo contrario informar que es de noche. Informar si la hora no es válida.
+Si es de noche y la hora es menor a 24 mostrar se debe agregar el mensaje: "a dormir".*/
+
 function mostrar()
 {
     var horaIngresada;
@@ -14,7 +18,7 @@ function mostrar()
         case 9:
         case 10:
         case 11:
-            mensaje = "Es de mañana";
+            alert ("Es de mañana");
         break;
 
         case 12:
@@ -25,25 +29,25 @@ function mostrar()
         case 17:
         case 18:
         case 19:
-            mensaje = "Es de tarde";
+            alert ("Es de tarde");
         break;
 
         default:
-            
-            if (horaIngresada < 24)
+            if (horaIngresada > 20 && horaIngresada < 24 || horaIngresada >= 1 && horaIngresada <= 5)
             {
-                mensaje = "A dormir";
+                alert ("Es de noche");
+                
+                if (horaIngresada >5)
+                {   
+                    alert ("A dormir");
+                }
+                else
+                {
+                    alert ("Ingrese una hora válida");   
+                }
             }
-            else
-            {
-                mensaje = "";   
-            }
-
         break;
-
-          
     
     }
-
 
 }
