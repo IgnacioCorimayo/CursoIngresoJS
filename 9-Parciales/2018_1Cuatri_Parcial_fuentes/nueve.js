@@ -5,7 +5,7 @@ function mostrar()
     var temperatura;
     var respuesta;
     var temperaturasPares;
-    var banderaTemperatura;
+    var banderaMarca;
     var pesoMaximo;
     var marcaMaxima;
     var cantidadTemperaturas;
@@ -15,7 +15,8 @@ function mostrar()
 
     respuesta = "si";
     temperaturasPares = 0;
-    banderaTemperatura = 0;
+    banderaMarca = 0;
+    banderaPeso = 0;
     cantidadTemperaturas = 0;
     sumaPeso = 0;
     cantidadPeso = 0;
@@ -34,25 +35,27 @@ function mostrar()
         }
 
         temperatura = prompt ("Ingrese temperatura")
-        temperatura = parseFloat (temperatura);
+        temperatura = parseInt (temperatura);
 
         while (temperatura < -30 || temperatura > 30)
         {
             temperatura = prompt ("Ingrese temperatura")
-            temperatura = parseFloat (temperatura);
+            temperatura = parseInt (temperatura);
         }
 
+        // a) Cantidad de temperaturas pares //
         if (temperatura % 2 == 0)
         {
             temperaturasPares = temperaturasPares + 1;
         }
 
-        if (banderaTemperatura == 0)
+        // b) La marca del producto más pesado //
+        if (banderaMarca == 0)
         {
             pesoMaximo = peso;
             marcaMaxima = marca;
 
-            banderaTemperatura = 1;
+        banderaMarca = 1;
         }
         else
         {
@@ -63,14 +66,17 @@ function mostrar()
             }
         }
 
+        // c) La cantidad de productos que se conservan a menos de 0 grados //
         if (temperatura < 0)
         {
             cantidadTemperaturas = cantidadTemperaturas + 1;
         }
     
+        // d) El promedio del peso de todos los productos //
         sumaPeso = sumaPeso + peso;
         cantidadPeso = cantidadPeso + 1;
 
+        // e) El peso máximo y el mínimo //
         if (banderaPeso == 0)
         {
             maximoPeso = peso;
@@ -97,8 +103,12 @@ function mostrar()
     promedio = sumaPeso / cantidadPeso;
 
     document.write ("La cantidad de temperaturas pares es: " +temperaturasPares);
-    document.write ("La marca del producto más pesado es: " +marcaMáxima+ " y su peso es: " +pesoMaximo);
+
+    document.write ("La marca del producto más pesado es: " +marcaMaxima+ " y su peso es: " +pesoMaximo);
+    
     document.write ("Las temperaturas menores a 0º son: " +cantidadTemperaturas);
-    document.write ("El promedio es: " +promedio);
+
+    document.write ("El promedio es de los pesos es: " +promedio);
+
     document.write ("El peso máximo es: " +maximoPeso+ " y el peso minimo es: " +minimoPeso);
 }

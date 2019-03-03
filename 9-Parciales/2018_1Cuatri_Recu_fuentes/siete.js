@@ -1,61 +1,63 @@
 function mostrar()
 {
-    var velocidad;
-    var combustible;
-    var cantidadVehiculos;
+    var nota;
+    var sexo;
+    var cantidadAlumnos;
+    var sumaNotas;
     var bandera;
+    var cantidadNotasVarones;
 
-
-    cantidadVehiculos = 0;
-    sumaVelocidad = 0;
+    cantidadAlumnos = 0;
+    sumaNotas = 0;
     bandera = 0;
+    cantidadNotasVarones = 0;
 
-    while (cantidadVehiculos < 5)
-    {           
-        velocidad = prompt ("Ingrese una velocidad en kilómetros");
-        velocidad = parseInt (velocidad);
+    while (cantidadAlumnos < 5)
+    {  
+        nota = prompt ("Ingrese una nota");
+        nota = parseFloat (nota);
 
-        combustible = prompt ("Ingrese tipo de combustible: sólido (s) o liquido (l)");
-
-       
-
-        if (velocidad > 0 && velocidad < 250) 
+        while (nota < 0 || nota > 10)
         {
-            switch(combustible)
-            {
-                case "s": 
-                case "l":
-                    cantidadVehiculos = cantidadVehiculos + 1;
-                break;
-            }
-
-            sumaVelocidad = sumaVelocidad + velocidad;
+            nota = prompt ("Ingrese una nota nuevamente");
+            nota = parseFloat (nota);
         }
-        else
-        {  
-            //velocidad = prompt ("Ingrese nuevamente una velocidad");
-            //combustible = prompt ("Ingrese nuevamente un combustible");
-        }  
+
+        sexo = prompt ("Ingrese un sexo");
+
+        while (sexo != "f" && sexo != "m")
+        {
+            sexo = prompt ("Ingrese un sexo nuevamente");
+        }
+
+        sumaNotas = sumaNotas + nota;
 
         if (bandera == 0)
         {
-            velocidadMinima = velocidad;
+            notaBaja = nota;
+            sexoBaja = sexo;
             bandera = 1;
         }
         else
         {
-            if (velocidad < velocidadMinima)
+            if (nota < notaBaja)
             {
-                velocidadMinima = velocidad;
-                
+                notaBaja = nota;
+                sexoBaja = sexo;
             }
         }
+        cantidadAlumnos = cantidadAlumnos +1;
 
-    }     
+        if (nota >= 6 && sexo == "m")
+        {
+            cantidadNotasVarones = cantidadNotasVarones + 1;
+        }
 
-    promedioVelocidad = sumaVelocidad / cantidadVehiculos; 
+    }
 
-    console.log (sumaVelocidad);
-    console.log (promedioVelocidad);
-    console.log (velocidadMinima+"  "+combustible);
+    promedioNotas = sumaNotas / cantidadAlumnos;
+
+    console.log ("El promedio de notas es: " +promedioNotas);
+    console.log ("La nota más baja es: " +notaBaja+ " y es de sexo: " +sexoBaja);
+    console. log ("La cantidad de varones con notas mayores o igual a 6 es: " +cantidadNotasVarones);
 }

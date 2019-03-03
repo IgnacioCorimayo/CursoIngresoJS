@@ -1,8 +1,11 @@
 /*Realizar el algoritmo que permita iterar el ingreso de dos datos, una letra y un número entre -100 y
-100 (validar) hasta que el usuario quiera e informar al terminar el ingreso por document.write: a) La
-cantidad de números pares. b) La cantidad de números impares. c) La cantidad de ceros. d) El promedio
-de todos los números positivos ingresados. e) La suma de todos los números negativos. f) El número y la
-letra del máximo y el mínimo.*/
+100 (validar) hasta que el usuario quiera e informar al terminar el ingreso por document.write:
+a) La cantidad de números pares. 
+b) La cantidad de números impares.
+c) La cantidad de ceros. 
+d) El promedio de todos los números positivos ingresados.
+e) La suma de todos los números negativos.
+f) El número y la letra del máximo y el mínimo.*/
 
 function mostrar()
 {
@@ -15,7 +18,12 @@ function mostrar()
     var sumaPositivos;
     var cantidadPositivos;
     var promedioPositivos;
-    var sumaNegativos
+    var sumaNegativos;
+    var bandera;
+    var numeroMaximo;
+    var numeroMinimo;
+    var letraMaxima;
+    var letraMinima;
 
     respuesta = "si";
 
@@ -25,6 +33,7 @@ function mostrar()
     sumaPositivos = 0;
     cantidadPositivos = 0;
     sumaNegativos = 0;
+    bandera = 0;
 
     while (respuesta != "no")
     {
@@ -34,12 +43,15 @@ function mostrar()
         numero = prompt ("Ingrese un numero");
         numero = parseInt (numero);
      
-        while (numero < -100 || numero > 100 )
+        while (numero < -100 || numero > 100)
         {
             numero = prompt ("Ingrese un numero");
             numero = parseInt (numero);
         }
         
+        /*a) La cantidad de números pares. 
+        b) La cantidad de números impares.
+        c) La cantidad de ceros.*/ 
         if (numero == 0)
         {
             cantidadCeros = cantidadCeros + 1;
@@ -56,6 +68,8 @@ function mostrar()
             }
         }
 
+        /*d) El promedio de todos los números positivos ingresados.*/
+        /*e) La suma de todos los números negativos.*/
         if (numero > 0)
         {
             sumaPositivos = sumaPositivos + numero;
@@ -66,10 +80,30 @@ function mostrar()
             sumaNegativos = sumaNegativos + numero;
         }
 
-        respuesta = prompt ("Ingrese no para salir");
-     
+        /*f) El número y la letra del máximo y el mínimo.*/
         if (bandera == 0)
-        numer
+        {
+            numeroMaximo = numero;
+            letraMaxima = letra;
+            numeroMinimo = numero;
+            letraMinima = letra;
+            bandera = 1;
+        }
+        else
+        {
+            if (numero > numeroMaximo)
+            {
+                numeroMaximo = numero;
+                letraMaxima = letra;
+            }
+            if (numero < numeroMinimo)
+            {
+                numeroMinimo = numero;
+                letraMinima = letra;
+            }    
+        }
+
+        respuesta = prompt ("Ingrese no para salir");
     }
 
     promedioPositivos = sumaPositivos / cantidadPositivos;
@@ -79,4 +113,5 @@ function mostrar()
     console.log ("La cantidad de ceros es: " +cantidadCeros);
     console.log ("El promedio de los números positivos es: " +promedioPositivos);
     console.log ("La suma de números negativos es: " +sumaNegativos);
+    console.log ("El numero y la letra del maximo es : " +numeroMaximo+ " y " +letraMaxima+ " y del minimo es: " +numeroMinimo+ " y " +letraMinima);
 }
