@@ -42,6 +42,7 @@ function mostrar()
         if (bandera == 0)
         {
             notaMinima = notaIngresada;
+            sexoMinimo = sexoIngresado;
             bandera = 1;
         }
         else

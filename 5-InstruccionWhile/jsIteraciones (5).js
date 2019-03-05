@@ -1,15 +1,16 @@
+/*Al presionar el botón pedir un sexo 'f' para femenino, 'm' para masculino.*/
+
 function mostrar()
 {
+    var sexo;
 
-var sexo;
+    sexo = prompt ("Ingrese un sexo según: f (femenino) o m (masculino)");
 
-sexo = prompt ("Ingrese f o m");
+    while (sexo != "f" && sexo != "m")
+    {   
+        sexo = prompt ("Ingrese un sexo correcto");    
+    }
 
-while (sexo != "f" || sexo != "m")
-{
-    sexo = prompt ("Ingrese f o m");    
-}
-
-document.getElementById('Sexo').value=sexo;
+    document.getElementById("sexo").value = sexo;
 
 }//FIN DE LA FUNCIÓN
