@@ -1,3 +1,10 @@
+/*Realizar el algoritmo que permita el ingreso por prompt de las notas (validar entre 0 y 10),
+el sexo (validar el sexo “f” o “m”) de 5 alumnos, informar por alert: 
+a) El promedio de las notas totales. 
+b) La nota más baja y el sexo de esa persona. 
+c) La cantidad de varones que su nota haya sido mayor o igual a 6.*/
+
+
 function mostrar()
 {
     var nota;
@@ -30,8 +37,7 @@ function mostrar()
             sexo = prompt ("Ingrese un sexo nuevamente");
         }
 
-        sumaNotas = sumaNotas + nota;
-
+        /*b) La nota más baja y el sexo de esa persona.*/ 
         if (bandera == 0)
         {
             notaBaja = nota;
@@ -46,15 +52,19 @@ function mostrar()
                 sexoBaja = sexo;
             }
         }
-        cantidadAlumnos = cantidadAlumnos +1;
-
+        
+        /*c) La cantidad de varones que su nota haya sido mayor o igual a 6.*/
         if (nota >= 6 && sexo == "m")
         {
             cantidadNotasVarones = cantidadNotasVarones + 1;
         }
 
+        sumaNotas = sumaNotas + nota;
+        
+        cantidadAlumnos = cantidadAlumnos +1;
     }
 
+    /*a) El promedio de las notas totales.*/ 
     promedioNotas = sumaNotas / cantidadAlumnos;
 
     console.log ("El promedio de notas es: " +promedioNotas);

@@ -1,7 +1,13 @@
+/*Realizar el algoritmo que permita el ingreso por prompt de las notas (validar entre 0 y 10),
+el sexo (validar el sexo “f” o “m”) de 5 alumnos, informar por alert: 
+a) El promedio de las notas totales. 
+b) La nota más baja y el sexo de esa persona. 
+c) La cantidad de varones que su nota haya sido mayor o igual a 6.*/
+
 function mostrar()
 {
-    var notaIngresada;
-    var sexoIngresado;
+    var nota;
+    var sexo;
     var cantidadAlumnos;
     var sumaNotas;
     var promedioNotas;
@@ -16,48 +22,50 @@ function mostrar()
 
     while (cantidadAlumnos < 5)
     {
-        notaIngresada = prompt ("Ingrese una nota");
-        notaIngresada = parseInt (notaIngresada);
+        nota = prompt ("Ingrese una nota");
+        nota = parseInt (nota);
 
-        while (notaIngresada < 0 || notaIngresada > 10)
+        while (nota < 0 || nota > 10)
         {
-            notaIngresada = prompt ("Ingrese una nota");
-            notaIngresada = parseInt (notaIngresada);
+            nota = prompt ("Ingrese una nota");
+            nota = parseInt (nota);
         }
 
-        sexoIngresado = prompt ("Ingrese un sexo");
+        sexo = prompt ("Ingrese un sexo");
 
-        while (sexoIngresado != "m" && sexoIngresado != "f")
+        while (sexo != "m" && sexo != "f")
         {
-            sexoIngresado = prompt ("Ingrese un sexo");
+            sexo = prompt ("Ingrese un sexo");
         }
-
-        if (notaIngresada >= 6 && sexoIngresado == "m")
-        {
-            cantidadNotasVarones = cantidadNotasVarones + 1;
-        }
-
-        sumaNotas = sumaNotas + notaIngresada;
-
+        
+        /*b) La nota más baja y el sexo de esa persona.*/
         if (bandera == 0)
         {
-            notaMinima = notaIngresada;
-            sexoMinimo = sexoIngresado;
+            notaMinima = nota;
+            sexoMinimo = sexo;
             bandera = 1;
         }
         else
         {   
-            if (notaIngresada < notaMinima)
+            if (nota < notaMinima)
             {
-                notaMinima = notaIngresada;
-                sexoMinimo = sexoIngresado;
+                notaMinima = nota;
+                sexoMinimo = sexo;
             }
         }
 
-        cantidadAlumnos = cantidadAlumnos + 1;
-        
+        /*c) La cantidad de varones que su nota haya sido mayor o igual a 6.*/
+        if (nota >= 6 && sexo == "m")
+        {
+            cantidadNotasVarones = cantidadNotasVarones + 1;
+        }
+
+        sumaNotas = sumaNotas + nota;
+
+        cantidadAlumnos = cantidadAlumnos + 1; 
     }
 
+    /*a) El promedio de las notas totales.*/
     promedioNotas = sumaNotas / cantidadAlumnos;
 
     

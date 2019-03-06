@@ -1,3 +1,11 @@
+/* Realizar el algoritmo que permita ingresar la marca del producto, el peso el cual debe ser entre 1 y 100 (validar), 
+la temperatura de almacenamiento(entre -30 y 30) hasta que el usuario quiera e informar al terminar el ingreso por document.write: 
+a) La cantidad de temperaturas pares. 
+b) La marca del producto más pesado 
+c) La cantidad de productos que se conservan a menos de 0 grados. 
+d) El promedio del peso de todos los productos.	
+f) El peso máximo y el mínimo.*/
+
 function mostrar()
 {
     var marca;
@@ -5,7 +13,7 @@ function mostrar()
     var temperatura;
     var respuesta;
     var temperaturasPares;
-    var banderaMarca;
+    var bandera;
     var pesoMaximo;
     var marcaMaxima;
     var cantidadTemperaturas;
@@ -15,7 +23,7 @@ function mostrar()
 
     respuesta = "si";
     temperaturasPares = 0;
-    banderaMarca = 0;
+    bandera = 0;
     banderaPeso = 0;
     cantidadTemperaturas = 0;
     sumaPeso = 0;
@@ -50,15 +58,21 @@ function mostrar()
         }
 
         // b) La marca del producto más pesado //
-        if (banderaMarca == 0)
+        // e) El peso máximo y el mínimo //
+        if (bandera == 0)
         {
             pesoMaximo = peso;
+            pesoMinimo = peso;
             marcaMaxima = marca;
-
-        banderaMarca = 1;
+            bandera = 1;
         }
         else
         {
+            if (peso < pesoMinimo)
+            {
+                pesoMinimo = peso;
+            }
+
             if (peso > pesoMaximo)
             {
                 pesoMaximo = peso;
@@ -76,26 +90,6 @@ function mostrar()
         sumaPeso = sumaPeso + peso;
         cantidadPeso = cantidadPeso + 1;
 
-        // e) El peso máximo y el mínimo //
-        if (banderaPeso == 0)
-        {
-            maximoPeso = peso;
-            minimoPeso = peso;
-            banderaPeso = 1;
-        }
-        else
-        {
-            if (peso > maximoPeso)
-            {
-                maximoPeso = peso;
-            }
-            if (peso < minimoPeso)
-            {
-                minimoPeso = peso;
-            }
-        }
-
-
         respuesta = prompt ("Ingrese no para salir");
    
     }
@@ -103,12 +97,8 @@ function mostrar()
     promedio = sumaPeso / cantidadPeso;
 
     document.write ("La cantidad de temperaturas pares es: " +temperaturasPares);
-
     document.write ("La marca del producto más pesado es: " +marcaMaxima+ " y su peso es: " +pesoMaximo);
-    
     document.write ("Las temperaturas menores a 0º son: " +cantidadTemperaturas);
-
     document.write ("El promedio es de los pesos es: " +promedio);
-
-    document.write ("El peso máximo es: " +maximoPeso+ " y el peso minimo es: " +minimoPeso);
+    document.write ("El peso máximo es: " +pesoMaximo+ " y el peso minimo es: " +pesoMinimo);
 }
